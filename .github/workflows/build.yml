@@ -21,7 +21,7 @@ jobs:
     
     - name: Check codestyle
       run: |
-        flake 8
+        flake8
 
     - name: Run tests
       run: |
