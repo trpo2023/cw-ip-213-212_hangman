@@ -10,4 +10,7 @@ lint:
 format:
 	find $(SRC_DIR) -type f -name '*.py' | xargs autopep8 --in-place --aggressive --aggressive
 
-.PHONY: run format
+test:
+	pytest
+
+.PHONY: run format test

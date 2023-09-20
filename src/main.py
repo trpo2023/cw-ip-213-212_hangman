@@ -2,17 +2,20 @@ import os
 import sys
 from libhangman.hangman import HangmanGame
 
+
 def show_menu():
     print("\nИгра Виселица")
     print("1. Начать новую игру")
     print("2. Сделать предположение")
     print("3. Выйти")
 
+
 def clear_console():
     if sys.platform.startswith('win'):
         os.system('cls')
     else:
         print('\033c', end='')
+
 
 def main():
     word_list = ["яблоко", "банан", "вишня", "виноград", "апельсин"]
@@ -23,7 +26,8 @@ def main():
     while True:
         if game.in_progress:
             game.display_word()
-            print("\nПопыток: " + str(game.guesses_left) + "/" + str(max_guesses))
+            print("\nПопыток: " + str(game.guesses_left) +
+                  "/" + str(max_guesses))
 
         show_menu()
         choice = input("Выберите нужное действие (1/2/3): ")
@@ -43,6 +47,7 @@ def main():
             break
         else:
             print("Неверный выбор. Введите 1, 2 или 3.")
+
 
 if __name__ == "__main__":
     main()

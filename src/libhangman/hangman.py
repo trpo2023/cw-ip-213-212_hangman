@@ -3,6 +3,7 @@ import random
 
 class HangmanGame:
     def __init__(self, word_list, max_guesses=6):
+        self.is_debug = False
         self.word_list = word_list
         self.secret_word = ""
         self.max_guesses = max_guesses
@@ -25,6 +26,7 @@ class HangmanGame:
             else:
                 display += "_"
         print(display)
+        return display
 
     def make_guess(self, letter):
         if not self.in_progress:
@@ -43,7 +45,7 @@ class HangmanGame:
                 "Увы, такой буквы нет в слове.\nОсталось попыток: " +
                 str(self.guesses_left))
 
-        #self.display_word()
+        # self.display_word()
 
         guessed_word = "".join(
             [letter if letter in self.guesses
@@ -57,4 +59,5 @@ class HangmanGame:
             self.in_progress = False
             print("Увы, вы проиграли! Загаданное лово:", self.secret_word)
 
-        input("Для продолженя нажмите Enter...")
+        if not self.is_debug:
+            input("Для продолженя нажмите Enter...")
