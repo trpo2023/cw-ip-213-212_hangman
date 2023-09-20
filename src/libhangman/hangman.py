@@ -39,9 +39,11 @@ class HangmanGame:
 
         if letter not in self.secret_word:
             self.guesses_left -= 1
-            print("Увы, такой буквы нет в слове.")
+            print(
+                "Увы, такой буквы нет в слове.\nОсталось попыток: " +
+                str(self.guesses_left))
 
-        self.display_word()
+        #self.display_word()
 
         guessed_word = "".join(
             [letter if letter in self.guesses
@@ -54,3 +56,5 @@ class HangmanGame:
         elif self.guesses_left == 0:
             self.in_progress = False
             print("Увы, вы проиграли! Загаданное лово:", self.secret_word)
+
+        input("Для продолженя нажмите Enter...")
