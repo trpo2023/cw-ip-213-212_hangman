@@ -39,6 +39,7 @@ class HangmanGame:
 
         if letter not in self.secret_word:
             self.guesses_left -= 1
+            print("Увы, такой буквы нет в слове.")
 
         self.display_word()
 
