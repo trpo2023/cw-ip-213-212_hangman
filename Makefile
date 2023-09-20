@@ -1,7 +1,13 @@
 SRC_DIR = src
 MAIN_FILE = main.py
 
-run: 
+run:
 	python3 $(SRC_DIR)/$(MAIN_FILE)
 
-.PHONY: run
+lint:
+	flake8 $(SRC_DIR)
+
+format:
+	find $(SRC_DIR) -type f -name '*.py' | xargs autopep8 --in-place --aggressive --aggressive
+
+.PHONY: run format
